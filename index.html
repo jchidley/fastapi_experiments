@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function getMessage() {
+    fetch('http://localhost:8000')
+    .then(function (response) {return response.json()})
+    .then(function (data) {
+        document.getElementById("replaceable_text").innerHTML = data.message});
+}
+</script>
+</head>
+<body>
+
+<p>Run a suitable web server that is allowed by CORS, for instance: 
+<code>python -m http.server 9000</code>
+
+<p id="replaceable_text">Text to be replaced by FastAPI</p>
+
+<button type="button" onclick="getMessage()">Replace text</button>
+
+</body>
+</html> 
